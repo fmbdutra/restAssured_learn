@@ -12,11 +12,14 @@ public class TestAPI {
 		String uriBase = "https://postman-echo.com/get";
 		
 		given()
+		//auth().preemptive().basic("username", "password").oauth2(YOUR_AUTHENTICATION_TOKEN_GOES_HERE).
 		.relaxedHTTPSValidation()
 		.param("foo1", "bar1")
 		.param("foo2", "bar2")
+			
 		.when()
 		.get(uriBase)
+			
 		.then()
 		.statusCode(200) //Retorna Status da Página
 		.contentType(ContentType.JSON) //Formato da resposta
